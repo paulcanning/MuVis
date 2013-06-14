@@ -1,9 +1,3 @@
-/**
- * Copyright 2011, Felix Palmer
- *
- * Licensed under the MIT license:
- * http://creativecommons.org/licenses/MIT/
- */
 package com.paulcanning.muvis.visualizer;
 
 import java.util.HashSet;
@@ -64,9 +58,9 @@ public class VisualizerView extends View {
     mBytes = null;
     mFFTBytes = null;
 
-    mFlashPaint.setColor(Color.argb(122, 255, 255, 255));
-    mFadePaint.setColor(Color.argb(235, 255, 255, 255)); // Adjust alpha to change how quickly the image fades
-    mFadePaint.setXfermode(new PorterDuffXfermode(Mode.MULTIPLY));
+    //mFlashPaint.setColor(Color.argb(122, 255, 255, 255));
+    mFadePaint.setColor(Color.argb(50, 0, 0, 0)); // Adjust alpha to change how quickly the image fades
+    //mFadePaint.setXfermode(new PorterDuffXfermode(Mode.MULTIPLY));
 
     mRenderers = new HashSet<Renderer>();
   }

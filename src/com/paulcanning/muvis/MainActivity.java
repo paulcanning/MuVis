@@ -1,18 +1,25 @@
 package com.paulcanning.muvis;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.paulcanning.muvis.visualizer.VisualizerView;
+import com.paulcanning.muvis.visualizer.renderer.AnimationRenderer;
 import com.paulcanning.muvis.visualizer.renderer.BarGraphRenderer;
 import com.paulcanning.muvis.visualizer.renderer.CircleBarRenderer;
 import com.paulcanning.muvis.visualizer.renderer.CircleRenderer;
+import com.paulcanning.muvis.visualizer.renderer.ImageRenderer;
 import com.paulcanning.muvis.visualizer.renderer.LineRenderer;
 
 /**
@@ -62,6 +69,8 @@ public class MainActivity extends Activity {
 
     // Start with just line renderer
     addLineRenderer();
+    addImageRenderer();
+    //addAnimationRenderer();
   }
 
   private void cleanUp()
@@ -116,11 +125,24 @@ public class MainActivity extends Activity {
     linePaint.setColor(Color.argb(88, 0, 128, 255));
 
     Paint lineFlashPaint = new Paint();
-    lineFlashPaint.setStrokeWidth(5f);
+    lineFlashPaint.setStrokeWidth(4f);
     lineFlashPaint.setAntiAlias(true);
-    lineFlashPaint.setColor(Color.argb(188, 255, 255, 255));
+    lineFlashPaint.setColor(Color.argb(255, 255, 255, 255));
     LineRenderer lineRenderer = new LineRenderer(linePaint, lineFlashPaint, true);
     mVisualizerView.addRenderer(lineRenderer);
+  }
+  
+  private void addImageRenderer() {
+	  Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.anim10022);
+	  ImageRenderer imageRenderer = new ImageRenderer(mBitmap);
+	  mVisualizerView.addRenderer(imageRenderer);
+  }
+  
+  private void addAnimationRenderer() {
+	  AnimationDrawable anim = (AnimationDrawable) getResources().getDrawable(R.drawable.png1);
+
+	  AnimationRenderer animRenderer = new AnimationRenderer(anim);
+	  mVisualizerView.addRenderer(animRenderer);
   }
 
   public void barPressed(View view)

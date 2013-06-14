@@ -21,8 +21,41 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int bg=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int anim10001=0x7f020000;
+        public static final int anim10002=0x7f020001;
+        public static final int anim10003=0x7f020002;
+        public static final int anim10004=0x7f020003;
+        public static final int anim10005=0x7f020004;
+        public static final int anim10006=0x7f020005;
+        public static final int anim10007=0x7f020006;
+        public static final int anim10008=0x7f020007;
+        public static final int anim10009=0x7f020008;
+        public static final int anim10010=0x7f020009;
+        public static final int anim10011=0x7f02000a;
+        public static final int anim10012=0x7f02000b;
+        public static final int anim10013=0x7f02000c;
+        public static final int anim10014=0x7f02000d;
+        public static final int anim10015=0x7f02000e;
+        public static final int anim10016=0x7f02000f;
+        public static final int anim10017=0x7f020010;
+        public static final int anim10018=0x7f020011;
+        public static final int anim10019=0x7f020012;
+        public static final int anim10020=0x7f020013;
+        public static final int anim10021=0x7f020014;
+        public static final int anim10022=0x7f020015;
+        public static final int anim10023=0x7f020016;
+        public static final int anim10024=0x7f020017;
+        public static final int anim10025=0x7f020018;
+        public static final int anim10026=0x7f020019;
+        public static final int anim10027=0x7f02001a;
+        public static final int anim10028=0x7f02001b;
+        public static final int anim10029=0x7f02001c;
+        public static final int anim10030=0x7f02001d;
+        public static final int anim10031=0x7f02001e;
+        public static final int anim10032=0x7f02001f;
+        public static final int ic_launcher=0x7f020020;
+        public static final int png1=0x7f020021;
+        public static final int quavers=0x7f020022;
     }
     public static final class id {
         public static final int visualizerView=0x7f080000;

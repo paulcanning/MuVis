@@ -1,9 +1,3 @@
-/**
- * Copyright 2011, Felix Palmer
- *
- * Licensed under the MIT license:
- * http://creativecommons.org/licenses/MIT/
- */
 package com.paulcanning.muvis.visualizer;
 
 // Data class to explicitly indicate that these bytes are raw audio data
