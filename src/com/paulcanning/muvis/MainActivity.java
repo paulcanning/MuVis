@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.paulcanning.muvis.prototype.R;
 import com.paulcanning.muvis.visualizer.VisualizerView;
 import com.paulcanning.muvis.visualizer.renderer.BarGraphRenderer;
 import com.paulcanning.muvis.visualizer.renderer.CircleBarRenderer;

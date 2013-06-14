@@ -8,6 +8,6 @@
             android:id="@+id/visualizerView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
-        </com.paulcanning.muvis.prototype.visualizer.VisualizerView>
+        </com.paulcanning.muvis.visualizer.VisualizerView>
 
 </LinearLayout>

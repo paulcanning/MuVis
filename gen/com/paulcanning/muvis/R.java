@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.paulcanning.muvis.prototype;
+package com.paulcanning.muvis;
 
 public final class R {
     public static final class attr {
