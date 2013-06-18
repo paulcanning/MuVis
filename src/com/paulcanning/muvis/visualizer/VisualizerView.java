@@ -17,6 +17,7 @@ import android.media.audiofx.Visualizer;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.paulcanning.muvis.visualizer.renderer.Renderer;
 
@@ -59,7 +60,7 @@ public class VisualizerView extends View {
     mFFTBytes = null;
 
     //mFlashPaint.setColor(Color.argb(122, 255, 255, 255));
-    mFadePaint.setColor(Color.argb(50, 0, 0, 0)); // Adjust alpha to change how quickly the image fades
+    mFadePaint.setColor(Color.argb(100, 0, 0, 0)); // Adjust alpha to change how quickly the image fades
     //mFadePaint.setXfermode(new PorterDuffXfermode(Mode.MULTIPLY));
 
     mRenderers = new HashSet<Renderer>();
@@ -71,9 +72,10 @@ public class VisualizerView extends View {
    */
   public void link()
   {
-	  Log.i("com.paulcanning.muvis.prototype", "Visualizer link started...");
+	  Log.i("com.paulcanning.muvis", "Visualizer link started...");
     // Create the Visualizer object and attach it to our media player.
     mVisualizer = new Visualizer(0);
+    Log.i("com.paulcanning.muvis", "Capture size: " + Visualizer.getCaptureSizeRange()[1]);
     mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
 
     // Pass through Visualizer data to VisualizerView
@@ -158,7 +160,6 @@ public class VisualizerView extends View {
   Bitmap mCanvasBitmap;
   Canvas mCanvas;
 
-
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
@@ -174,6 +175,8 @@ public class VisualizerView extends View {
     {
       mCanvas = new Canvas(mCanvasBitmap);
     }
+    
+    //mCanvas.drawColor(Color.argb(255, 0, 0, 100));
 
     if (mBytes != null) {
       // Render all audio renderers
@@ -194,14 +197,20 @@ public class VisualizerView extends View {
     }
 
     // Fade out old contents
-    mCanvas.drawPaint(mFadePaint);
+    //mCanvas.drawPaint(mFadePaint);
+    //mCanvas.drawColor(Color.BLACK);
 
-    if(mFlash)
+    /*if(mFlash)
     {
       mFlash = false;
       mCanvas.drawPaint(mFlashPaint);
-    }
+    }*/
 
     canvas.drawBitmap(mCanvasBitmap, new Matrix(), null);
   }
+
+public void addView(ImageView progress) {
+	// TODO Auto-generated method stub
+	
+}
 }

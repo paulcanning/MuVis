@@ -4,10 +4,6 @@ import java.util.Random;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
-import android.graphics.Paint;
 import android.graphics.Rect;
 
 import com.paulcanning.muvis.visualizer.AudioData;
@@ -74,6 +70,7 @@ public class ImageRenderer extends Renderer
     	//imagePaint.setColorFilter(imageFilter);
     	
     	canvas.drawBitmap(scaled, randWidth, randHeight, null);
+
     	
     } else {
     	// Amplitude is nothing special, reduce the amplitude

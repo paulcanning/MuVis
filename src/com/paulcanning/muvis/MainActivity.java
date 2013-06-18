@@ -1,7 +1,6 @@
 package com.paulcanning.muvis;
 
 import android.app.Activity;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -9,11 +8,10 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
-
 import com.paulcanning.muvis.visualizer.VisualizerView;
 import com.paulcanning.muvis.visualizer.renderer.AnimationRenderer;
 import com.paulcanning.muvis.visualizer.renderer.BarGraphRenderer;
@@ -68,9 +66,9 @@ public class MainActivity extends Activity {
     mVisualizerView.link();
 
     // Start with just line renderer
-    addLineRenderer();
-    addImageRenderer();
-    //addAnimationRenderer();
+    //addLineRenderer();
+    //addImageRenderer();
+    addAnimationRenderer();
   }
 
   private void cleanUp()
@@ -125,10 +123,10 @@ public class MainActivity extends Activity {
     linePaint.setColor(Color.argb(88, 0, 128, 255));
 
     Paint lineFlashPaint = new Paint();
-    lineFlashPaint.setStrokeWidth(4f);
+    lineFlashPaint.setStrokeWidth(5f);
     lineFlashPaint.setAntiAlias(true);
     lineFlashPaint.setColor(Color.argb(255, 255, 255, 255));
-    LineRenderer lineRenderer = new LineRenderer(linePaint, lineFlashPaint, true);
+    LineRenderer lineRenderer = new LineRenderer(linePaint, lineFlashPaint, false);
     mVisualizerView.addRenderer(lineRenderer);
   }
   
@@ -141,6 +139,8 @@ public class MainActivity extends Activity {
   private void addAnimationRenderer() {
 	  AnimationDrawable anim = (AnimationDrawable) getResources().getDrawable(R.drawable.png1);
 
+	  //BitmapDrawable anim = (BitmapDrawable) getResources().getDrawable(R.drawable.anim10022);
+	  
 	  AnimationRenderer animRenderer = new AnimationRenderer(anim);
 	  mVisualizerView.addRenderer(animRenderer);
   }

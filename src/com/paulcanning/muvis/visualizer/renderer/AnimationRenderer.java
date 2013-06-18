@@ -1,37 +1,36 @@
 package com.paulcanning.muvis.visualizer.renderer;
 
-import java.util.Random;
+import java.io.InputStream;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
+import android.graphics.Movie;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
-import android.view.View;
-import android.widget.FrameLayout.LayoutParams;
-import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 
 import com.paulcanning.muvis.visualizer.AudioData;
 import com.paulcanning.muvis.visualizer.FFTData;
 
 public class AnimationRenderer extends Renderer
 {
-  private AnimationDrawable mBitmap;
-  private float amplitude = 0;
+	private static final String TAG = "com.paulcanning.muvis";
+	//private AnimationDrawable mBitmap;
+	private AnimationDrawable mBitmap;
+	private float amplitude = 0;
 
-  /**
-   * Renders the audio data onto a line. The line flashes on prominent beats
-   * @param canvas
-   * @param paint - Paint to draw lines with
-   * @param paint - Paint to draw flash with
-   * @param cycleColor - If true the color will change on each frame
-   */
-  public AnimationRenderer(AnimationDrawable anim)
-  {
-    super();
-    mBitmap = anim;
-  }
+	/**
+	 * Renders the audio data onto a line. The line flashes on prominent beats
+	 * @param canvas
+	 * @param paint - Paint to draw lines with
+	 * @param paint - Paint to draw flash with
+	 * @param cycleColor - If true the color will change on each frame
+	 */
+	public AnimationRenderer(AnimationDrawable anim)
+	{
+		super();
+		mBitmap = anim;
+	}
 
   @Override
   public void onRender(Canvas canvas, AudioData data, Rect rect)
@@ -65,13 +64,18 @@ public class AnimationRenderer extends Renderer
     	// Amplitude is nothing special, reduce the amplitude
     	amplitude *= 0.99;
     }
-    
+
+    Log.d(TAG, "rect: " + rect);
+
     mBitmap.setBounds(rect);
     mBitmap.setCallback(null);
+    mBitmap.setVisible(true, false);
     mBitmap.draw(canvas);
     mBitmap.start();
 
-    //canvas.drawBitmap(mBitmap, rect.width() / 2, rect.height() / 2, null);
+	  /*InputStream is = getApplicationContext().getResources().openRawResource(R.drawable.png1);
+	  Movie myMovie = Movie.decodeStream(is);
+	  myMovie.draw(canvas, 0f, 0f);*/
   }
 
   @Override

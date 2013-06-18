@@ -53,18 +53,22 @@ public class LineRenderer extends Renderer
       cycleColor();
     }
 
+    //Log.i("com.paulcanning.muvis", "Data Bytes: " + data.bytes);
+    //Log.i("com.paulcanning.muvis", "Data Length: " + data.bytes.length);
+    
     // Calculate points for line
     for (int i = 0; i < data.bytes.length - 1; i++) {
       mPoints[i * 4] = rect.width() * i / (data.bytes.length - 1);
-      mPoints[i * 4 + 1] =  rect.height() / 2
-          + ((byte) (data.bytes[i] + 128)) * (rect.height() / 3) / 128;
+      mPoints[i * 4 + 1] =  rect.height() / 2 + ((byte) (data.bytes[i] + 128)) * (rect.height() / 3) / 128;
       mPoints[i * 4 + 2] = rect.width() * (i + 1) / (data.bytes.length - 1);
-      mPoints[i * 4 + 3] = rect.height() / 2
-          + ((byte) (data.bytes[i + 1] + 128)) * (rect.height() / 3) / 128;
+      mPoints[i * 4 + 3] = rect.height() / 2 + ((byte) (data.bytes[i + 1] + 128)) * (rect.height() / 3) / 128;
     }
+    
+    //Log.i("com.paulcanning.muvis", "mPoints: " + mPoints.toString());
 
     // Calc amplitude for this waveform
     float accumulator = 0;
+    
     for (int i = 0; i < data.bytes.length - 1; i++) {
       accumulator += Math.abs(data.bytes[i]);
     }
@@ -97,10 +101,15 @@ public class LineRenderer extends Renderer
   private float colorCounter = 0;
   private void cycleColor()
   {
-    int r = (int)Math.floor(128*(Math.sin(colorCounter) + 3));
-    int g = (int)Math.floor(128*(Math.sin(colorCounter + 1) + 1));
-    int b = (int)Math.floor(128*(Math.sin(colorCounter + 7) + 1));
+	  //Log.i("com.paulcanning.muvis", "colourcounter: " + colorCounter);
+	  
+    int r = (int)Math.floor(128*(Math.sin(colorCounter + 3) + 10));
+    int g = (int)Math.floor(128*(Math.sin(colorCounter + 1) + 10));
+    int b = (int)Math.floor(128*(Math.sin(colorCounter + 7) + 10));
     mFlashPaint.setColor(Color.argb(255, r, g, b));
+    
+		//Log.i("com.paulcanning.muvis", "Cycle colour: " + r + " " + " " + g + " " + b);
+    
     colorCounter += 0.03;
   }
 }
